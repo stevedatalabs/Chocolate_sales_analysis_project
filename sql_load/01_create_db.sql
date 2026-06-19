@@ -1,0 +1,1 @@
+CREATE DATABASE chocolate_sales_db;
