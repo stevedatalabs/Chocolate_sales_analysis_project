@@ -62,22 +62,27 @@ ORDER BY total_profit DESC;
 /*
 ### Executive Summary:
 **What happened?**
-The biggest thing that stands out is how incredibly consistent the loyalty program’s contribution is across all store categories.
+The biggest thing that stands out is how incredibly consistent the loyalty program’s 
+contribution is across all store categories.
 * Airport → 50.06%
 * Mall → 50.25%
 * Online → 50.23%
 * Retail → 50.08%
 Roughly **50% of total profit across every sales channel is coming from loyalty members.**
-This level of consistency immediately tells me that the loyalty program is not concentrated in one part of the business.
+This level of consistency immediately tells me that the loyalty program is not
+concentrated in one part of the business.
 It is performing almost uniformly across all store categories.
-Although Airport stores generated the highest number of orders and highest profit, the more important insight here is that loyalty members are contributing almost equally to profitability regardless of where customers shop.
+Although Airport stores generated the highest number of orders and highest profit, 
+the more important insight here is that loyalty members are contributing 
+almost equally to profitability regardless of where customers shop.
 
 ---
 
 **Why did this happen?**
 This suggests the loyalty program has been integrated effectively across the entire business.
 In simple terms:
-Whether a customer shops at Airport stores, Mall stores, Online, or Retail stores, loyalty members are generating profit at almost the same rate everywhere.
+Whether a customer shops at Airport stores, Mall stores, Online, or Retail stores, 
+loyalty members are generating profit at almost the same rate everywhere.
 This could indicate:
 * Strong customer adoption of the loyalty program
 * Consistent customer retention across all channels
@@ -85,10 +90,13 @@ This could indicate:
 
 ---
 **What should management do?**
-Management should continue investing in the loyalty program because the data clearly shows it is a major driver of profitability.
+Management should continue investing in the loyalty program because 
+the data clearly shows it is a major driver of profitability.
 One thing I would investigate further is this:
-If loyalty members are contributing nearly **half of total profit**, how can we increase loyalty enrollment even further?
-Because improving loyalty adoption even slightly could have a significant impact on overall profitability.
+If loyalty members are contributing nearly **half of total profit**,
+how can we increase loyalty enrollment even further?
+Because improving loyalty adoption even slightly 
+could have a significant impact on overall profitability.
 
 Main takeaway:
 The loyalty program is not just working.

@@ -33,7 +33,7 @@ So far, I have been working on solving executive-level business questions design
 
 Business question:
 
-> For each store type, analyze the impact of the loyalty program by showing total orders placed, total profit generated, and the percentage of profit contributed by registered loyalty members, focusing only on the top-performing product category by revenue.
+> For each store type, analyze the impact of the loyalty program by showing total orders placed, total profit generated, percentage of profit contributed by registered loyalty members, focusing only on the top-performing product category by revenue.
 
 Key concepts applied:
 
@@ -54,7 +54,7 @@ Approximately **50% of total profit across all sales channels is consistently ge
 
 Business question:
 
-> For each country, analyze overall financial health for the year 2024 by showing total quantity sold, total revenue generated, and average profit margin percentage, while focusing only on countries generating more than $2 million in revenue.
+> For each country, analyze overall financial health for the year 2024 by showing total quantity sold, total revenue generated, average profit margin percentage, focusing only on countries generating more than $2 million in revenue.
 
 Key concepts applied:
 
@@ -67,9 +67,31 @@ Key concepts applied:
 
 Main insight:
 
-Australia emerged as the strongest performing market with the highest revenue and quantity sold, while profit margins remained highly consistent across countries, suggesting standardized pricing strategy and operational consistency globally.
+**Australia emerged as the strongest performing market with the highest revenue and quantity sold, while profit margins remained highly consistent across countries, suggesting standardized pricing strategy and operational consistency globally.**
 
 ---
+
+### 3. Discount Impact Analysis (2024 Performance)
+
+Business question :
+
+>We’ve been spending a lot on discounts and promotions lately, and I need to understand whether those discounts are actually helping the business or simply reducing profitability.I want you to analyze product category performance for the year 2024.For each product category, show me :total number of orders placed, total revenue generated, average discount percentage given, average profit margin percentage
+
+Key Concepts applied: 
+
+- JOINs  
+- GROUP BY  
+- COUNT(DISTINCT)  
+- SUM() and AVG() Aggregations  
+- Profit Margin Calculation  
+- Date-Based Filtering  
+- ORDER BY Ranking  
+- Business Performance Analysis  
+
+Main insight:
+
+**Our discounts are not hurting product profitability, but there is little evidence that they are driving stronger business performance either. Product revenue differences are being driven by product demand, not discount strategy.**
+
 
 ## What This Project Is Really About
 
