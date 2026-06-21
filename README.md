@@ -6,6 +6,8 @@ The goal of this project is not simply to practice SQL syntax, but to develop th
 
 Instead of working on random SQL exercises, I structured this project to simulate how analysts work in actual companies: receiving business questions from leadership, understanding the data, designing the logic needed to answer the question, writing SQL queries, and finally interpreting the business story behind the results.
 
+>all queries are in the sql_queries folder while their results' screenshots are in the images folder 
+
 ---
 
 ## Project Overview
