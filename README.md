@@ -95,6 +95,45 @@ Main insight:
 **Our discounts are not hurting product profitability, but there is little evidence that they are driving stronger business performance either. Product revenue differences are being driven by product demand, not discount strategy.**
 
 
+### 4. Age segment Profitability Analysis
+
+Business Question : 
+
+>Our marketing spend is currently distributed evenly across all age brackets, 
+>but I suspect certain age groups are carrying our business. 
+>For the year 2024, I want to see a clear profile of our customers broken 
+>into three distinct age buckets: 'Young Adults' (under 30), 
+>Middle-Aged' (30 to 50), and 'Seniors' (over 50).
+>For each of these three groups, tell me: 
+>the total number of unique customers who purchased from us, 
+>the total quantity of products bought, the total net profit generated, 
+>and the average revenue per order. 
+>Sort the results so the most profitable age bracket is sitting at the very top."
+
+Key Concepts applied: 
+
+- Customer segmentation using CASE statements (Age Bucketing)  
+- Multi-table JOINs for combining transactional and customer demographic data  
+- COUNT(DISTINCT) for identifying unique customers  
+- SUM() aggregations for quantity sold and profit analysis  
+- Derived metric calculation (Average Revenue per Order)  
+- Date filtering using WHERE clause (2024 performance analysis)  
+- GROUP BY for segment-level business analysis  
+- ORDER BY for ranking highest-performing customer segments  
+- Customer demographic analysis for marketing strategy optimization  
+- Business decision analysis based on profitability and customer behavior  
+
+Main insight:
+
+**Our Middle-Aged segment is our primary engine, driving over $2 million in profit. 
+However, our Seniors are a close second and hold nearly identical purchasing habits (spending $25.45 per order vs. $25.51 for Middle-Aged). 
+Our Young Adults represent our smallest customer footprint 
+and profit generation. We should immediately reallocate a portion 
+of our youth marketing budget toward deeper engagement 
+with the Middle-Aged and Senior cohorts to maximize ROI**
+
+
+
 ## What This Project Is Really About
 
 This project is helping me strengthen skills beyond writing SQL syntax.
