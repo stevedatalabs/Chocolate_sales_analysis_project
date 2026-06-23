@@ -33,7 +33,7 @@ GROUP BY
         WHEN c.age BETWEEN 30 AND 50  THEN 'middle_aged'
         ELSE 'seniors'
         END 
-ORDER BY total_profit DESC
+ORDER BY total_profit DESC;
 
 /*
 The CMO's Executive Takeaway:

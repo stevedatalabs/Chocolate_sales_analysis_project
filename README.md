@@ -44,7 +44,40 @@ Key concepts applied:
 - GROUP BY for business segmentation  
 - CASE statements for conditional aggregation  
 - COUNT(DISTINCT) to avoid double counting  
-- Business interpretation of loyalty contribution to profitability  
+- Business interpretation of loyalty contribution to profitability 
+
+<details>
+<summary>View SQL Query</summary>
+
+```sql
+WITH top_category AS (
+    SELECT 
+        p.category
+    FROM chocolate_sales.fact_sales s
+    JOIN chocolate_sales.dim_products p 
+        ON s.product_id = p.product_id
+    GROUP BY p.category
+    ORDER BY SUM(s.revenue) DESC
+    LIMIT 1
+)
+SELECT
+    st.store_type,
+    COUNT(DISTINCT s.order_id) AS total_orders,
+    SUM(s.profit) AS total_profit,
+    ROUND(
+        (SUM(CASE WHEN c.loyalty_member THEN s.profit ELSE 0 END) / SUM(s.profit)) * 100, 
+        2
+    ) AS pct_loyalty_profit
+FROM chocolate_sales.fact_sales s
+JOIN chocolate_sales.dim_stores st ON s.store_id = st.store_id
+JOIN chocolate_sales.dim_customers c ON s.customer_id = c.customer_id
+JOIN chocolate_sales.dim_products p ON s.product_id = p.product_id
+WHERE p.category = (SELECT category FROM top_category)
+GROUP BY st.store_type
+ORDER BY total_profit DESC;
+
+```
+</details>
 
 Main insight:
 
@@ -65,7 +98,28 @@ Key concepts applied:
 - Profit margin calculations  
 - HAVING clause for post-aggregation filtering  
 - ORDER BY for ranking top-performing markets  
-- Business interpretation of revenue and profitability patterns  
+- Business interpretation of revenue and profitability patterns
+
+<details>
+<summary>View SQL Query</summary>
+
+```sql
+SELECT
+    st.country,
+    SUM(s.quantity) as total_quantity,
+    SUM(s.revenue) as total_revenue,
+    ROUND((SUM(s.profit) / SUM(s.revenue)) * 100, 2)  AS profit_pct
+FROM chocolate_sales.fact_sales s
+JOIN chocolate_sales.dim_stores st  
+    ON s.store_id = st.store_id
+WHERE EXTRACT(YEAR from s.order_date) = 2024
+GROUP BY st.country
+HAVING SUM(s.revenue) > 2000000
+ORDER BY SUM(s.revenue) DESC;
+
+```
+</details>
+
 
 Main insight:
 
@@ -88,7 +142,29 @@ Key Concepts applied:
 - Profit Margin Calculation  
 - Date-Based Filtering  
 - ORDER BY Ranking  
-- Business Performance Analysis  
+- Business Performance Analysis
+
+<details>
+<summary>View SQL Query</summary>
+
+```sql
+SELECT
+    p.category,
+    COUNT(DISTINCT s.order_id) AS total_orders,
+    SUM(s.revenue) AS total_revenue,
+    ROUND((AVG(s.discount) * 100),2) AS avg_pct_discount,
+    ROUND((SUM(s.profit) / SUM(s.revenue)) * 100, 2) AS profit_margin
+FROM chocolate_sales.fact_sales s
+JOIN chocolate_sales.dim_products p
+    ON s.product_id = p.product_id
+WHERE EXTRACT(YEAR FROM s.order_date) = 2024
+GROUP BY p.category
+ORDER BY SUM(s.revenue) DESC;
+
+
+```
+</details>
+
 
 Main insight:
 
@@ -121,7 +197,37 @@ Key Concepts applied:
 - GROUP BY for segment-level business analysis  
 - ORDER BY for ranking highest-performing customer segments  
 - Customer demographic analysis for marketing strategy optimization  
-- Business decision analysis based on profitability and customer behavior  
+- Business decision analysis based on profitability and customer behavior 
+
+<details>
+<summary>View SQL Query</summary>
+
+```sql
+SELECT
+    CASE 
+        WHEN c.age < 30 THEN 'young_adults'
+        WHEN c.age BETWEEN 30 AND 50  THEN 'middle_aged'
+        ELSE 'seniors'
+        END AS age_bucket,
+    COUNT(DISTINCT c.customer_id) AS total_customers,
+    SUM(s.quantity) AS total_quantity,
+    SUM(s.profit) AS total_profit,
+    ROUND(SUM(s.revenue)/COUNT(DISTINCT s.order_id),2) AS avg_revenue_per_order
+FROM chocolate_sales.fact_sales s 
+JOIN chocolate_sales.dim_customers c ON s.customer_id = c.customer_id
+WHERE EXTRACT(YEAR FROM s.order_date) = 2024
+GROUP BY 
+    CASE 
+        WHEN c.age < 30 THEN 'young_adults'
+        WHEN c.age BETWEEN 30 AND 50  THEN 'middle_aged'
+        ELSE 'seniors'
+        END 
+ORDER BY total_profit DESC;
+
+
+```
+</details>
+
 
 Main insight:
 

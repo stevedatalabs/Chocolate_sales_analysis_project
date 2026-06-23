@@ -19,7 +19,7 @@ JOIN chocolate_sales.dim_products p
     ON s.product_id = p.product_id
 WHERE EXTRACT(YEAR FROM s.order_date) = 2024
 GROUP BY p.category
-ORDER BY SUM(s.revenue) DESC
+ORDER BY SUM(s.revenue) DESC;
 
 /*
 ## What happened?

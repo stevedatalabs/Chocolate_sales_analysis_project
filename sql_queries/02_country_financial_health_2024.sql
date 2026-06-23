@@ -18,7 +18,7 @@ JOIN chocolate_sales.dim_stores st
 WHERE EXTRACT(YEAR from s.order_date) = 2024
 GROUP BY st.country
 HAVING SUM(s.revenue) > 2000000
-ORDER BY SUM(s.revenue) DESC
+ORDER BY SUM(s.revenue) DESC;
 
 /*Executive Summary:
 
